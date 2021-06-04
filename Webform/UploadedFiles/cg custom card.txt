@@ -1,0 +1,224 @@
+<md-card ng-controller='dp.LDEtrTicket' ng-init='init_Controller()' style='min-height:200px;'>
+   <md-card-title layout='row' class='nofocus' style='width:100%;'>
+      <md-card-title-text flex>
+         <div  layout='row' class='md-title'>
+            <div flex layout='row' layout-align='start center' flex>
+               <h2>{{ _ICard.title }}</h2>
+            </div>
+            <div flex='5' layout='column' layout-align='center center'>
+               <md-button class='md-icon-button' aria-label='expand'>
+                  <md-icon md-font-set='fa' md-font-icon='{{_ICard.expandIcon}}' class='fa'></md-icon>
+               </md-button>
+            </div>
+         </div>
+      </md-card-title-text>
+   </md-card-title>
+   <div style='width:100%;' layout='column' ng-show='_ICard.expanded'>
+      <table cellspacing='0' style='border-spacing: 0; border-collapse: seperate; width:100%' class='tableBorder '>
+         <thead>
+            <tr>
+               <th class='generalContent'>Field</th>
+               <th class='generalContent'>Value</th>
+            </tr>
+         <thead>
+         <tbody>
+            <tr ng-show='this.show'  class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Requester Email ID</span></td>
+               <td><input class='special-style' aria-label='Short Text - Required Course Name' title='{{packet.DataFields.RequesterEmailId}}' flex ng-model='packet.DataFields.RequesterEmailId'/></td>
+            </tr>
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Requester Name</span></td>
+               <td> <input class='special-style' aria-label='Short Text - Required Course Name' title='{{packet.DataFields.RequesterName}}' flex ng-model='packet.DataFields.RequesterName'/></td>
+            </tr>
+
+
+
+<tr>
+   <td class='generalContent'><span class='collapsedLutExpander'>Employee Email ID</span></td>
+   <td> <input class='special-style' aria-label='Short Text - Required Course Name' title='{{packet.DataFields.EmployeeEmailId}}' flex ng-model='packet.DataFields.EmployeeEmailId'/> </td>
+</tr>
+
+
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Training Delivery Method</span></td>
+               <td><dp-list ng-model='packet.DataFields.TrainingDeliveryMethod' metadata='Metadata.TrainingDeliveryMethod.ValueListArray' selected-value='packet.DataFields.TrainingDeliveryMethod' title='{{packet.DataFields.TrainingDeliveryMethod}}'></dp-list></td>
+            </tr>
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Required Course Name</span></td>
+               <td>  <input class='special-style'  aria-label='Short Text - Required Course Name' title='{{packet.DataFields.RequiredCourseName}}' flex ng-model='packet.DataFields.RequiredCourseName'/> </td>
+            </tr>
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Required Training Location</span></td>
+               <td >  <input class='special-style' aria-label='Short Text - Required Training Location' title='{{packet.DataFields.RequiredTrainingLocation}}' flex ng-model='packet.DataFields.RequiredTrainingLocation'/></td>
+            </tr>
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Course Cost</span></td>
+               <td><input class='special-style' aria-label='Whole number - Course Cost' title='{{packet.DataFields.CourseCost}}' type='number' ng-model='packet.DataFields.CourseCost' flex/></td>
+            </tr>
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Training Currency</span></td>
+               <td>  <dp-list ng-model='packet.DataFields.TrainingCurrency' metadata='Metadata.TrainingCurrency.ValueListArray' selected-value='packet.DataFields.TrainingCurrency' title='{{packet.DataFields.TrainingCurrency}}' ></dp-list></td>
+            </tr>
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Training Start Date</span></td>
+               <td>  <datetime aria-label='Date and time - Training Start Date' ng-disabled='packet.isReadOnlyPacket' title="{{packet.DataFields.TrainingStartDate | date : 'dd/MM/yyyy HH:mm:ss' }}"' ng-model='packet.DataFields.TrainingStartDate'></datetime></td>
+            </tr>
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Training End Date</span></td>
+               <td> <datetime aria-label='Date and time - Training End Date' ng-disabled='packet.isReadOnlyPacket' title="{{packet.DataFields.TrainingEndDate | date : 'dd/MM/yyyy HH:mm:ss' }}"' ng-model='packet.DataFields.TrainingEndDate'></datetime> </td>
+            </tr>
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Second Preferred Start/End Date</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.SecondPreferredStartEndDate}}' flex ng-model='packet.DataFields.SecondPreferredStartEndDate'/> </td>
+            </tr>
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Course Description</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.CourseDescription}}' flex ng-model='packet.DataFields.CourseDescription'/> </td>
+            </tr>
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>certification  included ?</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.CertificationIncluded}}' flex ng-model='packet.DataFields.CertificationIncluded'/> </td>
+            </tr>
+
+  <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Training Certification Name</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.TrainingCertificationName}}' flex ng-model='packet.DataFields.TrainingCertificationName'/> </td>
+            </tr>
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Vendor Name</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.VendorName}}' flex ng-model='packet.DataFields.VendorName'/> </td>
+            </tr>
+
+
+
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Vendor URL</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.VendorUrl}}' flex ng-model='packet.DataFields.VendorUrl'/> </td>
+            </tr>
+
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Vendor Address</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.VendorAddress}}' flex ng-model='packet.DataFields.VendorAddress'/> </td>
+            </tr>
+
+
+     
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Employee Business Unit Code</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.EmployeeBusinessUnitCode}}' flex ng-model='packet.DataFields.EmployeeBusinessUnitCode'/> </td>
+            </tr>
+
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Authorization Type Of Training</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.AuthorizationTypeOfTraining}}' flex ng-model='packet.DataFields.AuthorizationTypeOfTraining'/> </td>
+            </tr>
+
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Authorization Business Unit Managers Name</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.AuthorizationBusinessUnitManagersName}}' flex ng-model='packet.DataFields.AuthorizationBusinessUnitManagersName'/> </td>
+            </tr>
+
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Authorization Date Of Approval</span></td>
+               <td><datetime aria-label='Date and time - Authorization Date Of Approval' ng-disabled='packet.isReadOnlyPacket' title="{{packet.DataFields.AuthorizationDateOfApproval | date : 'dd/MM/yyyy HH:mm:ss' }}"' ng-model='packet.DataFields.AuthorizationDateOfApproval'></datetime></td>
+            </tr>
+
+
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Authorization Approvers Name</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.AuthorizationApproversName}}' flex ng-model='packet.DataFields.AuthorizationApproversName'/> </td>
+            </tr>
+
+
+            <tr class='fieldContentBorder collapsedLutRow' class='fieldContentBorder generalContent'>
+               <td class='generalContent'><span class='collapsedLutExpander'>Training Justification Comments</span></td>
+               <td><input class='special-style' aria-label='Short Text - Second Preferred Start/End Date' title='{{packet.DataFields.TrainingJustificationComments }}' flex ng-model='packet.DataFields.TrainingJustificationComments '/> </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+
+</md-card>
+
+
+
+
+
+
+
+
+.generalContent {
+padding: 5px;
+color: #686868;
+overflow: hidden;
+text-overflow: ellipsis;
+ white-space: nowrap;
+}
+.rowYReduce{
+height:60px;margin-bottom:10px;
+margin-top:10px;
+}
+.labelOverwrite {
+color: #9E9E9E;
+letter-spacing: 0.3px;
+}
+.fieldContentBorder {
+color: #686868;
+border-top: 1px solid #E0E0E0;
+border-bottom: 1px solid #E0E0E0;
+border-right: 1px solid #E0E0E0;
+}
+.valueContentBorder {
+padding: 8px;
+color: #686868;
+border-top: 1px solid #E0E0E0;
+border-bottom: 1px solid #E0E0E0;
+}
+.tableBorder {
+border: 1px solid #E0E0E0;
+}
+.noLeftTableBorder {
+border-left: none!important;
+}
+.noRightBorder {
+border-right:border-bottom: 1px solid #5A94C5
+}
+.fieldHeadingBorder {
+
+}
+.ag_textArea {
+width:100%;
+height:130px!important;
+}
+
+.special-style{
+    width: 460px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+ border-bottom:0.1px solid rgba(0,0,0,0.38)
+}

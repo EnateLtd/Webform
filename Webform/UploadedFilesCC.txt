@@ -1,0 +1,520 @@
+<div *ngIf="!IsExpanded">
+    <div class="list-group d-flex flex-row flex-wrap">
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="Resolved by" >Resolved by</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['ResolvedBy'] | dpDataFieldFormat: DataDictionaryDataTypes.List">{{Packet.DataFields["ResolvedBy"] | dpDataFieldFormat: DataDictionaryDataTypes.List}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}" *ngIf = "showVersion">
+            <div class="d-flex w-100 justify-content-between" >
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="Version number" >Version number</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['VersionNumber'] | dpDataFieldFormat: DataDictionaryDataTypes.ShortText">{{Packet.DataFields["VersionNumber"] | dpDataFieldFormat: DataDictionaryDataTypes.ShortText}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}" *ngIf = "showTime">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="Time in minutes" >Time Spent By Engineering in Minutes</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['TimeInMinutes'] | dpDataFieldFormat: DataDictionaryDataTypes.ShortText">{{Packet.DataFields["TimeInMinutes"] | dpDataFieldFormat: DataDictionaryDataTypes.ShortText}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}" *ngIf = "showRemarks">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="Remarks" >Remarks</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['Remarks'] | dpDataFieldFormat: DataDictionaryDataTypes.LongText">{{Packet.DataFields["Remarks"] | dpDataFieldFormat: DataDictionaryDataTypes.LongText}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="Escalation Type" >Escalation Type</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['EscalationType'] | dpDataFieldFormat: DataDictionaryDataTypes.MultipleLevelList">{{Packet.DataFields["EscalationType"] | dpDataFieldFormat: DataDictionaryDataTypes.MultipleLevelList}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="AMS Days" >AMS Days</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['AmsDays'] | dpDataFieldFormat: DataDictionaryDataTypes.LongText">{{Packet.DataFields["AmsDays"] | dpDataFieldFormat: DataDictionaryDataTypes.LongText}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="TFS Ticket ID" >TFS Ticket ID</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['TfsTicketId'] | dpDataFieldFormat: DataDictionaryDataTypes.LongText">{{Packet.DataFields["TfsTicketId"] | dpDataFieldFormat: DataDictionaryDataTypes.LongText}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="Problem Record ID" >Problem Record ID</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['ProblemRecordId'] | dpDataFieldFormat: DataDictionaryDataTypes.ShortText">{{Packet.DataFields["ProblemRecordId"] | dpDataFieldFormat: DataDictionaryDataTypes.ShortText}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="PO Number" >PO Number</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['PoNumber'] | dpDataFieldFormat: DataDictionaryDataTypes.LongText">{{Packet.DataFields["PoNumber"] | dpDataFieldFormat: DataDictionaryDataTypes.LongText}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="AMS Credit Quantity" >AMS Credit Quantity</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['AmsCreditQuantity'] | dpDataFieldFormat: DataDictionaryDataTypes.LongText">{{Packet.DataFields["AmsCreditQuantity"] | dpDataFieldFormat: DataDictionaryDataTypes.LongText}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="Customer Priority" >Customer Priority</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['CustomerPriority'] | dpDataFieldFormat: DataDictionaryDataTypes.List">{{Packet.DataFields["CustomerPriority"] | dpDataFieldFormat: DataDictionaryDataTypes.List}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="Server version" >Server version</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['ServerVersion'] | dpDataFieldFormat: DataDictionaryDataTypes.ShortText">{{Packet.DataFields["ServerVersion"] | dpDataFieldFormat: DataDictionaryDataTypes.ShortText}}</span>
+            </div>
+        </div>
+        <div class="list-group-item list-group-item-action c-pointer" (click)="Toggle()"  [ngClass]="{'w-50': Option.Card.IsWorkManagerMain}">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="mb-1 collapsed-text text-truncate" style="margin-right:10px" title="Non - production testing?" >Non - production testing?</h6>
+                <span class="collapsed-text text-truncate" [title]="Packet.DataFields['NonProduction'] | dpDataFieldFormat: DataDictionaryDataTypes.List">{{Packet.DataFields["NonProduction"] | dpDataFieldFormat: DataDictionaryDataTypes.List}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="IsExpanded">
+    <div class="conatiner-fluid">
+    <div class="row p-2">
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>Resolved by</label>
+                    <en8-list-view [(ngModel)]="Packet.DataFields['ResolvedBy']" [option]="Option"  (click) = "myClickFunction($click , Option)"  [valueListArray]="Packet.CustomCardInfo.DataFieldsSchema['ResolvedBy'].ValueListArray"></en8-list-view>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group" *ngIf = "showVersion">
+                    <label>Version number</label>
+                    <en8-short-text [(ngModel)]="Packet.DataFields['VersionNumber']" [option]="Option" ></en8-short-text>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group" *ngIf = "showTime">
+                    <label>Time Spent By Engineering in Minutes</label>
+                    <en8-short-text [(ngModel)]="Packet.DataFields['TimeInMinutes']" [option]="Option" ></en8-short-text>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group" *ngIf = "showRemarks">
+                    <label>Remarks</label>
+                    <en8-long-text [(ngModel)]="Packet.DataFields['Remarks']" [option]="Option" ></en8-long-text>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>Escalation Type</label>
+                    <en8-multi-level-select [(ngModel)]="Packet.DataFields['EscalationType']"  [option]="Option" [valueList]="Packet.CustomCardInfo.DataFieldsSchema['EscalationType'].ValueList"></en8-multi-level-select>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>AMS Days</label>
+                    <en8-long-text [(ngModel)]="Packet.DataFields['AmsDays']" [option]="Option" ></en8-long-text>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>TFS Ticket ID</label>
+                    <en8-long-text [(ngModel)]="Packet.DataFields['TfsTicketId']" [option]="Option" ></en8-long-text>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>Problem Record ID</label>
+                    <en8-short-text [(ngModel)]="Packet.DataFields['ProblemRecordId']" [option]="Option" ></en8-short-text>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>PO Number</label>
+                    <en8-long-text [(ngModel)]="Packet.DataFields['PoNumber']" [option]="Option" ></en8-long-text>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>AMS Credit Quantity</label>
+                    <en8-long-text [(ngModel)]="Packet.DataFields['AmsCreditQuantity']" [option]="Option" ></en8-long-text>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>Customer Priority</label>
+                    <en8-list-view [(ngModel)]="Packet.DataFields['CustomerPriority']" [option]="Option" [valueListArray]="Packet.CustomCardInfo.DataFieldsSchema['CustomerPriority'].ValueListArray"></en8-list-view>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>Server version</label>
+                    <en8-short-text [(ngModel)]="Packet.DataFields['ServerVersion']" [option]="Option" ></en8-short-text>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'col-12': Option.Card.IsWorkManagerSide, 'col-6': Option.Card.IsWorkManagerMain}">
+            <div>
+                <div class="form-group">
+                    <label>Non - production testing?</label>
+                    <en8-list-view [(ngModel)]="Packet.DataFields['NonProduction']" [option]="Option" [valueListArray]="Packet.CustomCardInfo.DataFieldsSchema['NonProduction'].ValueListArray"></en8-list-view>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { CommonModule } from "@angular/common";
+import { NgModule, Component, Injector, Input } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule, HttpClient } from "@angular/common/http";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { DataDictionaryDataTypes, CustomCardDisplaySection } from "@dal";
+import { WorkItemValidator, ICardOption, CaseFlowPacketForUI } from "@displayPacketObjects";
+import { CustomCardModule } from "@customCardModule";
+@Component({
+    selector: "ticketwithfeedback15-component",
+    template: $template,
+    styles: $style
+})
+export class TicketWithFeedback15Component {
+    
+    //SYSTEM PROPERITES BEGINS
+    DataDictionaryDataTypes: typeof DataDictionaryDataTypes = DataDictionaryDataTypes;
+    CustomCardDisplaySection: typeof CustomCardDisplaySection = CustomCardDisplaySection;
+    @Input('option') Option: ICardOption;
+    get Packet(): CaseFlowPacketForUI {
+        return this.Option && <any>this.Option.Packet;
+    }
+    get IsExpanded(): boolean {
+        return (this.Option ? this.Option.Card.Expand === true : false);
+    }
+
+
+    //SYSTEM PROPERITES ENDS
+    showRemarks = false;
+    showVersion = false;
+    showTime = false;
+
+
+    constructor() {
+    
+    }
+    ngOnInit() {
+        //YOUR CUSTOM CODE BEGINS
+      console.log(this.Packet);
+        this.AddCustomValidations();
+
+         if (this.Packet.State !== 0 && (this.Packet.DataFields.ResolvedBy === "Product knowledge - Customer Success" || 
+            this.Packet.DataFields.ResolvedBy === "Platform change" || 
+            this.Packet.DataFields.ResolvedBy === "Others"))
+           {
+                this.showRemarks = true;
+                this.showTime = false;
+                this.showVersion = false;
+           }
+
+
+           if (this.Packet.State !== 0 && (
+            this.Packet.DataFields.ResolvedBy === "Patch release"|| 
+            this.Packet.DataFields.ResolvedBy === "Future release"))
+           {
+               this.showVersion = true;
+               this.showRemarks = false;
+               this.showTime = false;
+           }
+
+
+           if (this.Packet.State !== 0 && (this.Packet.DataFields.ResolvedBy === "Product knowledge - Engineering"))
+           {
+                this.showRemarks = true;
+                this.showTime = true;
+                this.showVersion = false;
+           }
+
+           if (this.Packet.State !== 0 && (this.Packet.DataFields.ResolvedBy === "Legacy Issue - Workaround Provided"))
+           {
+                this.showRemarks = false;
+                this.showTime = false;
+                this.showVersion = false;
+           }
+        //YOUR CUSTOM CODE ENDS
+    }
+
+
+    myClickFunction(click , value) { 
+ 
+          
+
+
+            if(value.Packet.DataFields.ResolvedBy === "Product knowledge - Customer Success" 
+            || value.Packet.DataFields.ResolvedBy === "Platform change"
+            || value.Packet.DataFields.ResolvedBy === "Others")
+            {
+                    this.showRemarks = true;
+                    this.showTime = false;
+                    this.showVersion = false;
+                   
+            }
+
+
+            else if(value.Packet.DataFields.ResolvedBy === "Patch release" 
+            || value.Packet.DataFields.ResolvedBy === "Future release")
+            {
+                    this.showVersion = true;
+                    this.showRemarks = false;
+                    this.showTime = false;
+                    
+            }
+            
+            else if(value.Packet.DataFields.ResolvedBy === "Product knowledge - Engineering" )
+            {
+                    this.showRemarks = true;
+                    this.showTime = true;
+                    this.showVersion = false;
+                    
+            }
+
+            else if (this.Packet.State !== 0 && (this.Packet.DataFields.ResolvedBy === "Legacy Issue - Workaround Provided"))
+            {
+                    this.showRemarks = false;
+                    this.showTime = false;
+                    this.showVersion = false;
+            }
+
+            else{
+                this.showRemarks = false;
+                this.showTime = false;
+                this.showVersion = false;
+            } 
+    }
+
+
+
+AddCustomValidations(){ 
+      this.Option.Card.Validators.push((packet: CasePacketForUI, cardOptions: ICardOption) => { 
+      const errors: string[] = [];  
+            
+
+            if (this.Packet.State !== 0 && this.Packet.DataFields.ResolvedBy !== "Product knowledge - Customer Success" && 
+            this.Packet.DataFields.ResolvedBy !== "Platform change" && 
+            this.Packet.DataFields.ResolvedBy !== "Others" &&
+            this.Packet.DataFields.ResolvedBy !== "Patch release" &&
+            this.Packet.DataFields.ResolvedBy !== "Future release" &&
+            this.Packet.DataFields.ResolvedBy !== "Product knowledge - Engineering" &&
+            this.Packet.TicketAttribute.CategoryLevel1  === "Incident" &&
+            this.Packet.Status !== 0 &&
+            this.Packet.Status !== 13 &&
+            this.Packet.Status !== 9 )  
+            {
+                        errors.push("Please fill in Resolved By and Remarks");
+            }
+
+            if (this.Packet.State !== 0 &&
+            this.Packet.TicketAttribute.CategoryLevel1  === "Incident" && 
+            (this.Packet.DataFields.ResolvedBy === "Product knowledge - Customer Success" || 
+            this.Packet.DataFields.ResolvedBy === "Platform change" ||
+            this.Packet.DataFields.ResolvedBy === "Others") && this.Packet.Status !== 0 &&
+            this.Packet.Status !== 13 &&
+            this.Packet.Status !== 9)
+            {            
+                    if(this.Packet.DataFields.Remarks === "")
+                    {
+                        errors.push("Please fill in Resolved By and Remarks");
+                    }                               
+            }
+
+
+            if (this.Packet.State !== 0 &&
+            this.Packet.TicketAttribute.CategoryLevel1  === "Incident" && 
+            (this.Packet.DataFields.ResolvedBy === "Patch release" || 
+             this.Packet.DataFields.ResolvedBy  === "Future release") 
+            && this.Packet.Status !== 0 &&
+            this.Packet.Status !== 13 &&
+            this.Packet.Status !== 9 )
+            {            
+                    if(this.Packet.DataFields.VersionNumber === "")
+                    {
+                        errors.push("Please fill in Resolved By and Remarks");
+                    }                               
+            }
+
+            if (this.Packet.State !== 0 &&
+            this.Packet.TicketAttribute.CategoryLevel1  === "Incident" && 
+            (this.Packet.DataFields.ResolvedBy === "Product knowledge - Engineering") 
+            && this.Packet.Status !== 0  &&
+            this.Packet.Status !== 13 &&
+            this.Packet.Status !== 9
+             )
+            {            
+                    if(this.Packet.DataFields.TimeInMinutes === "")
+                    {
+                        errors.push("Please fill Time Spent By Engineering in Minutes");
+                    }        
+                    if(this.Packet.DataFields.Remarks === "")
+                    {
+                        errors.push("Please fill in Resolved By and Remarks");
+                    }                       
+            }
+
+             return WorkItemValidator.ERRORS(<CardForUI>cardOptions.Card, errors);
+               } 
+        ); 
+    }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+@NgModule({
+    declarations: [TicketWithFeedback15Component],
+    entryComponents: [TicketWithFeedback15Component],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, CustomCardModule],
+    providers: [HttpClient,
+    {
+        provide: "widgets",
+        multi: true,
+        useValue: [{ name: "component-ticketwithfeedback15", component: TicketWithFeedback15Component }]
+    }]
+})
+export default class TicketWithFeedback15Module { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.table-group {
+    overflow-x: auto;
+} 
+
+.table-group .form-control {
+    min-width: 180px !important;
+} 
+
+.table-group table {
+    width: 100%;
+} 
+
+.table-group table th {
+    font-weight: normal;
+} 
+
+.table-group table td:not(.ct-delete), .table-group table th:not(.ct-delete) {
+    vertical-align: top;
+    padding-right: 15px;
+    white-space: nowrap;
+} 
+
+.table-group table td.ct-delete, .table-group table th.ct-delete {
+    text-align: center;
+    padding-bottom: 15px;
+    width: 50px;
+    min-width: 50px;
+}
+
+.ct-delete i {
+    cursor: pointer;
+}
+
+.ct-add {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+} 
+
+.table-group table td.date-time {
+    min-width: 350px;
+}
+
+.collapsed-text {
+    max-width: 50%;
+}
+
